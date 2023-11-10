@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opioid Conversion Calculator</title>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
+</head>
+<body>
+<div class="calculatorWrapper">
+<h1>Opioid Conversion Calculator</h1>
+<div class="modeSelection">
+    <!-- Mode Selection -->
+	<label for="modeSelection">Mode Selection:</label>
+	<select id="modeSelection">
+	    <option value="single">Single Opioid Conversion</option>
+	    <option value="multiple">Multiple Opioids MME Calculator</option>
+	</select>
+	</div>
+    <!-- Single Opioid Conversion Section -->
+    <div class="calculator" id="singleOpioid">
+        <label for="fromOpioid">Convert from:</label>
+        <select id="fromOpioid">
+            <option value="morphine">Morphine</option>
+            <option value="codeine">Codeine</option>
+            <option value="fentanyl">Fentanyl transdermal (in mcg/hr)</option>
+            <option value="methadone">Methadone</option>
+            <option value="oxycodone">Oxycodone</option>
+            <option value="tramadol">Tramadol</option>
+        </select>
+
+        <label for="fromDose">Current Dose (mg or mcg/hr):</label>
+        <input type="number" id="fromDose" required>
+
+        <label for="toOpioid">Convert to:</label>
+        <select id="toOpioid">
+            <option value="morphine">Morphine</option>
+            <option value="codeine">Codeine</option>
+            <option value="fentanyl">Fentanyl transdermal (in mcg/hr)</option>
+            <option value="methadone">Methadone</option>
+            <option value="oxycodone">Oxycodone</option>
+            <option value="tramadol">Tramadol</option>
+        </select>
+
+        <button id="calculateSingle">Calculate</button>
+        <div id="singleResult"></div>
+    </div>
+
+    <!-- Multiple Opioids Conversion Section -->
+    <div class="calculator hidden" id="multipleOpioids">
+        <div id="opioidInputs">
+            <!-- Opioid input template -->
+            <div class="opioidInput">
+                <label>Opioid:</label>
+                <select class="opioidType">
+                    <option value="codeine">Codeine</option>
+                    <option value="fentanyl">Fentanyl transdermal (mcg/hr)</option>
+                    <option value="methadone">Methadone</option>
+                    <option value="morphine">Morphine</option>
+                    <option value="oxycodone">Oxycodone</option>
+                    <option value="tramadol">Tramadol</option>
+                </select>
+                <label>Dose:</label>
+                <input type="number" class="opioidDose" placeholder="Enter daily dose">
+		<button class="removeOpioid">Remove</button> <!-- Remove button added -->
+            </div>
+        </div>
+        <button id="addOpioid">Add Another Opioid</button>
+        <button id="calculateMultiple">Calculate Total MME</button>
+        <div id="totalMME"></div>
+    </div>
+</div>
+</body>
+</html>
